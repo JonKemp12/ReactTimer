@@ -10,6 +10,8 @@ var {Route, Router, IndexRoute, hashHistory} = require('react-router');
 // Declare the Main component
 var Main = require('Main');
 // Declare app components here:
+var Timer = require('Timer');
+const Countdown = require('Countdown');
 
 // Load foundation by using
 // style to inject the css from the foundation.min.css
@@ -37,6 +39,8 @@ ReactDOM.render(
     {/* Main is always rendered as URL starts with root path '/' */}
     <Route path="/" component={Main}>
     {/* Add routes to app components here: */}
+    <Route path="countdown" component={Countdown}/>
+    <IndexRoute component={Timer}/>
     </Route>
   </Router>,
   document.getElementById('app')
