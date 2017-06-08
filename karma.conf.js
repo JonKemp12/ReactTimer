@@ -5,7 +5,9 @@ module.exports = function (config) {
     browsers: ['Chrome'], // browsers to test
     singleRun: true,
     frameworks: ['mocha'],
-    files: ['app/tests/**/*.test.jsx'], // all test files
+    files: ['node_modules/jquery/dist/jquery.min.js',
+     'app/tests/**/*.test.jsx',
+     'node_modules/foundation-sites/dist/foundation.min.js'], // all test files
     preprocessors: {
       'app/tests/**/*.test.jsx': ['webpack', 'sourcemap']
     },

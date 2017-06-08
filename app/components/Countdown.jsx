@@ -3,11 +3,14 @@
 // Countdown page:
 var React = require('react');
 
+// Clock component
+const Clock = require('Clock');
+
 var Countdown = React.createClass({
   render: function() {
     return (
       <div>
-        <p>Render Countdown component</p>
+        <Clock totalSecs={219}/>
       </div>
     );
   }
