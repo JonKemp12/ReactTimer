@@ -10,9 +10,10 @@ var Main = (props) => {
   return (
     <div>
       <Nav/>
-      <div>
-        <div>
-          <p>Main.jsx rendered.</p>
+      <div className="row">
+        {/* create a grid for all children
+            1/2 on medium screen, 1/3 on large, all centered */}
+        <div className="columns medium-6 large-4 small-centered">
             {props.children}
         </div>
       </div>
