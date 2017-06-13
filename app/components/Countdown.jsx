@@ -76,7 +76,7 @@ var Countdown = React.createClass({
       var newSecs = this.state.totalSecs -1;
       // update the state if not 0 already!
       if (newSecs >= 0) {
-        this.setState({totalSecs: newSecs});  
+        this.setState({totalSecs: newSecs});
       };
       // Stop when at zero
       if (newSecs === 0) {
@@ -118,6 +118,7 @@ var Countdown = React.createClass({
 
     return (
       <div>
+        <h1 className="page-title">Countdown</h1>
         <Clock totalSecs={totalSecs}/>
         {renderControlArea()}
       </div>

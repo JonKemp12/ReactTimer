@@ -34,7 +34,7 @@ describe('Countdown', () => {
     });
 
     it('should countdown to zero after time expires', (done) => {
-      // Create an instance of the componentdocountdown.state.totalSecs).toBe(10);
+      // Create an instance of the component
       var countdown = TestUtils.renderIntoDocument(<Countdown/>);
       // call the function with 1 secs:
       countdown.handleSetCountdown(1);
@@ -46,5 +46,42 @@ describe('Countdown', () => {
         done();
       }, 3001);
     });
+
+    it('should pause countdown on paused status', (done) => {
+      // Create an instance of the component
+      var countdown = TestUtils.renderIntoDocument(<Countdown/>);
+      // call the function with 3 secs:
+      countdown.handleSetCountdown(3);
+      // Pause imediated
+      countdown.handleStatusChange('paused');
+
+      // check it hasn't changed in 1+ secs:
+      setTimeout(() => {
+        expect(countdown.state.totalSecs).toBe(3);
+        // Check it is paused:
+        expect(countdown.state.status).toBe('paused');
+        // Called to check result after async test finished:
+        done();
+      }, 1001);
+    });
+
+        it('should clear countdown on stopped status', (done) => {
+          // Create an instance of the component
+          var countdown = TestUtils.renderIntoDocument(<Countdown/>);
+          // call the function with 3 secs:
+          countdown.handleSetCountdown(3);
+          // Pause imediated
+          countdown.handleStatusChange('stopped');
+
+          // check it hasn't changed in 1+ secs:
+          setTimeout(() => {
+            expect(countdown.state.totalSecs).toBe(0);
+            // Check it is paused:
+            expect(countdown.state.status).toBe('stopped');
+            // Called to check result after async test finished:
+            done();
+          }, 1001);
+        });
+
   });
 });
