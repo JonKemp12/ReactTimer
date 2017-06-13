@@ -17,6 +17,11 @@ var Controls = React.createClass({
     }
   },
 
+// This fun is called when the component is passed new props:
+  componentWillReceiveProps: function (newProps) {
+    console.log('componentWillReceiveProps:', newProps.status);
+  },
+
   // Render
   render: function () {
     var {status} = this.props;

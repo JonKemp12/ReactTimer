@@ -34,7 +34,6 @@ var Clock = React.createClass({
         <span className="clock-text">
           {this.formatSeconds(totalSecs)}
         </span>
-
       </div>
     );
   }
