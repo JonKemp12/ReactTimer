@@ -6,6 +6,7 @@ var React = require('react');
 // Clock component
 const Clock = require('Clock');
 const CountdownForm = require('CountdownForm');
+const Controls = require('Controls');
 
 var Countdown = React.createClass({
   // Set up initial state:
@@ -24,6 +25,15 @@ var Countdown = React.createClass({
         case 'started':
           // So start the timer:
           this.startTimer();
+          break;
+
+        case 'stopped':
+          // So clear the count and..
+          this.setState({totalSecs: 0});
+        case 'paused':
+          // stop the timer:
+          clearInterval(this.timer);
+          this.timer = undefined;
           break;
         default:
       };
@@ -53,14 +63,32 @@ var Countdown = React.createClass({
     });
   },
 
+  //Function to handle the status changed called from children:
+  handleStatusChange: function (newStatus) {
+    this.setState({
+      status: newStatus
+    });
+  },
+
   // Render the clock and form:
   render: function() {
-    var {totalSecs} = this.state;
+    var {totalSecs, status} = this.state;
+    //Optional render control buttons:
+    var renderControlArea = () => {
+      if (status !== 'stopped') {
+        // Running or paused so need to render the controls with the props
+        // for current status and func to use to change it:
+        return <Controls status={status} onStatusChange={this.handleStatusChange}/>
+      } else {
+        // Just render the input form:
+        return <CountdownForm onSetCountdown={this.handleSetCountdown}/>
+      }
+    }
 
     return (
       <div>
         <Clock totalSecs={totalSecs}/>
-        <CountdownForm onSetCountdown={this.handleSetCountdown}/>
+        {renderControlArea()}
       </div>
     );
   }
