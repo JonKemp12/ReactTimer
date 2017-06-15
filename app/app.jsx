@@ -15,7 +15,8 @@ const Countdown = require('Countdown');
 
 // Load foundation by using
 // style to inject the css from the foundation.min.css
-require('style!css!foundation-sites/dist/foundation.min.css');
+// Removed as now using scss foundation-sites
+// require('style!css!foundation-sites/dist/foundation.min.css');
 // And do it by calling the function:
 $(document).foundation();
 

@@ -1,5 +1,14 @@
 // Import files:
+
+// Variables first
 @import "base/variables";
+
+// Foundation styles:
+@import "base/foundation-settings";
+@import "foundation";
+@include foundation-everything;
+
+// components.
 @import "components/nav";
 @import "components/clock";
 @import "components/controls";
