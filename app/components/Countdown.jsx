@@ -20,17 +20,17 @@ var Countdown = React.createClass({
   // This function gets called just before it is shown:
   // NOTE: no refs or DOM are here yet.
   componentWillMount: function () {
-    console.log('componentWillMount happened');
+    // console.log('componentWillMount happened');
   },
 
   // This one gets called after the component is created
   componentDidMount: function () {
-    console.log('componentDidMount happened');
+    // console.log('componentDidMount happened');
   },
 
   // This function gets called when a component is switched out
   componentWillUnmount: function () {
-    console.log('componentWillUnmount happened');
+    // console.log('componentWillUnmount happened');
 
     // Want to clear the timer:
     // stop the timer:
@@ -64,9 +64,7 @@ var Countdown = React.createClass({
 // React calls this func just before the update to props or state.
 // With the new values for them
   componentWillUpdate: function (nextProps, nextState) {
-
   },
-
 
 
   // Start a timer:

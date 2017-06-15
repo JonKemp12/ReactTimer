@@ -19,7 +19,7 @@ var Controls = React.createClass({
 
 // This fun is called when the component is passed new props:
   componentWillReceiveProps: function (newProps) {
-    console.log('componentWillReceiveProps:', newProps.status);
+    // console.log('componentWillReceiveProps:', newProps.status);
   },
 
   // Render
@@ -30,7 +30,7 @@ var Controls = React.createClass({
       if (status === 'started') {
         // secondary is grey, call the status change on click
         return <button className="button secondary" onClick={this.onStatusChange('paused')}>Pause</button>
-      } else if (status === 'paused') {
+      } else if (status === 'paused' || status === 'stopped') {
         // primary is blue to start it.
         return <button className="button primary" onClick={this.onStatusChange('started')}>Start</button>
       };
